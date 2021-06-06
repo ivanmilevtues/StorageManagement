@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DataBaseCommunication.DTO;
 using DataBaseCommunication.Managers;
 using DataBaseCommunication.Models;
 using DataBaseCommunication.Ninject;
@@ -16,19 +18,29 @@ namespace DataBaseCommunication
             userManager = kernel.Get<UserDBManager>();
         }
 
-        public User GetUser(string username, string password)
+        public UserDTO GetUser(string username, string password)
         {
             return userManager.GetUser(username, password);
         }
 
-        public User CreateUser(string username, string password, Role userRole)
+        public UserDTO GetUser(string username)
         {
-            return userManager.CreateUser(username, password, userRole);
+            return userManager.GetUser(username);
         }
 
-        public IQueryable<User> GetUsers()
+        public UserDTO CreateUser(UserDTO user)
+        {
+            return userManager.CreateUser(user);
+        }
+
+        public IEnumerable<UserDTO> GetUsers()
         {
             return userManager.GetAll();
+        }
+
+        public UserDTO UpdateUser(UserDTO editedUser)
+        {
+            return userManager.Update(editedUser);
         }
     }
 }

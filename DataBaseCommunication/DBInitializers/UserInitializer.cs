@@ -14,7 +14,9 @@ namespace DataBaseCommunication.DBInitializers
         {
             IList<User> users = new List<User>
             {
-                new User { Username = "admin", Password = HashPassword("admin"), Role = Role.Admin }
+                new User { Username = "admin", Password = HashPassword("admin"), Role = Role.Admin },
+                new User { Username = "cashier", Password = HashPassword("cashier"), Role = Role.Cashier },
+                new User { Username = "supplier", Password = HashPassword("supplier"), Role = Role.Supplier }
             };
 
             context.Users.AddRange(users);

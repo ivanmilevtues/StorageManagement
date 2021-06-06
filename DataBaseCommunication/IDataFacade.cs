@@ -1,10 +1,19 @@
 ﻿using System;
-using DataBaseCommunication.Models;
+using System.Collections.Generic;
+using System.Linq;
+using DataBaseCommunication.DTO;
 
 namespace DataBaseCommunication
 {
     public interface IDataFacade
     {
-        User GetUser(string username, String password);
+        UserDTO GetUser(string username, String password);
+
+        UserDTO GetUser(string username);
+
+        UserDTO CreateUser(UserDTO user);
+        IEnumerable<UserDTO> GetUsers();
+
+        UserDTO UpdateUser(UserDTO editedUser);
     }
 }

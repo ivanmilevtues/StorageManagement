@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using DataBaseCommunication;
+﻿using System.Windows;
+using Ninject;
 using StorageManagement.Services;
+using StorageManagement.Views;
 
 namespace StorageManagement
 {
@@ -22,20 +11,27 @@ namespace StorageManagement
     public partial class LoginWindow : Window
     {
         private readonly UserService userService;
+        private readonly StateService state;
+        private readonly IKernel kernel;
 
-        public LoginWindow(UserService userService)
+        public LoginWindow(UserService userService, StateService state, IKernel kernel)
         {
             InitializeComponent();
             this.userService = userService;
+            this.state = state;
+            this.kernel = kernel;
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var user = userService.Login(usernameTextBox.Text, passwordBox.Password);
-                MessageBox.Show("Successful login");
-            } catch(InvalidLoginException ex)
+                state.User = userService.Login(usernameTextBox.Text, passwordBox.Password);
+                var window = kernel.Get<AdminWindow>();
+                Close();
+                window.Show();
+            }
+            catch (InvalidLoginException ex)
             {
                 MessageBox.Show(ex.Message);
             }
