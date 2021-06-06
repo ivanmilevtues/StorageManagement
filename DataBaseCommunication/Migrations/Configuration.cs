@@ -1,15 +1,12 @@
-﻿namespace DataBaseCommunication.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+﻿using System.Data.Entity.Migrations;
 
+namespace DataBaseCommunication.Migrations
+{
     internal sealed class Configuration : DbMigrationsConfiguration<DataBaseCommunication.StorageManagementDBContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(DataBaseCommunication.StorageManagementDBContext context)

@@ -7,23 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Label Grid.Row="1" Grid.Column="1">Username:</Label>
-        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding User.username}"></TextBox>
-        <Label Grid.Row="2" Grid.Column="1">Password:</Label>
-        <PasswordBox Grid.Row="2" Grid.Column="2"></PasswordBox>
-        <Button Grid.Row="3" Grid.Column="2" Command="{Binding LoginCommand}">Login</Button>
+
     </Grid>
 </Window>

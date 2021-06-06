@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Text;
+using DataBaseCommunication.DBInitializers;
 using DataBaseCommunication.Models;
 
 namespace DataBaseCommunication
 {
-    class StorageManagementDBContext: DbContext
+    internal class StorageManagementDBContext: DbContext
     {
+        public StorageManagementDBContext(UserInitializer userInitializer)
+        {
+            Database.SetInitializer(userInitializer);
+        }
         public DbSet<User> Users { get; set; }
     }
 }
