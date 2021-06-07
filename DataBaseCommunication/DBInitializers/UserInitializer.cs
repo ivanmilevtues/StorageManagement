@@ -28,7 +28,7 @@ namespace DataBaseCommunication.DBInitializers
         {
             var data = Encoding.ASCII.GetBytes(password);
 
-            hasher.ComputeHash(data);
+            data = hasher.ComputeHash(data);
 
             return new ASCIIEncoding().GetString(data, 0, data.Length);
         }

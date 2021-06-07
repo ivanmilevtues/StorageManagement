@@ -49,7 +49,7 @@ namespace StorageManagement.Services
         {
             var data = Encoding.ASCII.GetBytes(password);
 
-            hasher.ComputeHash(data);
+            data = hasher.ComputeHash(data);
 
             return new ASCIIEncoding().GetString(data, 0, data.Length);
         }
