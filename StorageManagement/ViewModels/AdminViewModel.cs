@@ -83,7 +83,13 @@ namespace StorageManagement.ViewModels
         [PermissionRequired(RoleDTO.Admin)]
         private void CreateUser()
         {
-            _users.Add(userService.CreateUser(EditedUser));
+            var newUser = new UserDTO()
+            {
+                Username = EditedUser.Username,
+                Password = EditedUser.Password,
+                Role = EditedUser.Role,
+            };
+            _users.Add(userService.CreateUser(newUser));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Users)));
         }
 
