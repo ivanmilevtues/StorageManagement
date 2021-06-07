@@ -12,7 +12,9 @@ namespace DataBaseCommunication.Ninject
     {
         public override void Load()
         {
-            Bind<UserInitializer>().ToSelf();
+            Bind<ISeed>().To<UserInitializer>();
+            Bind<ISeed>().To<ProductInitializer>();
+            Bind<DBInitializer>().ToSelf();
         }
     }
 }

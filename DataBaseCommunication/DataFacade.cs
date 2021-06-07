@@ -14,7 +14,7 @@ namespace DataBaseCommunication
 
         public DataFacade()
         {
-            IKernel kernel = new StandardKernel(new DataManagerModule());
+            IKernel kernel = new StandardKernel(new DataManagerModule(), new InitializersModule());
             userManager = kernel.Get<UserDBManager>();
         }
 

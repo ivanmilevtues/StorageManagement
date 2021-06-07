@@ -6,11 +6,11 @@ using DataBaseCommunication.Models;
 
 namespace DataBaseCommunication.DBInitializers
 {
-    class UserInitializer: DropCreateDatabaseAlways<StorageManagementDBContext>
+    class UserInitializer: ISeed
     {
         private readonly HashAlgorithm hasher = new SHA1CryptoServiceProvider();
 
-        protected override void Seed(StorageManagementDBContext context)
+        public void AddToSeed(ref StorageManagementDBContext context)
         {
             IList<User> users = new List<User>
             {
@@ -20,8 +20,6 @@ namespace DataBaseCommunication.DBInitializers
             };
 
             context.Users.AddRange(users);
-            
-            base.Seed(context);
         }
 
         private string HashPassword(string password)

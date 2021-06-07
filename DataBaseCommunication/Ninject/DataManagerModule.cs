@@ -13,6 +13,7 @@ namespace DataBaseCommunication.Ninject
             Bind<IMapper>().ToConstant(CreateDTOMapper());
             Bind<StorageManagementDBContext>().ToSelf().InSingletonScope();
             Bind<UserDBManager>().ToSelf().InSingletonScope();
+            Bind<ProductDBManager>().ToSelf().InSingletonScope();
         }
 
         private IMapper CreateDTOMapper()
@@ -20,6 +21,9 @@ namespace DataBaseCommunication.Ninject
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<User, UserDTO>().ReverseMap();
+                cfg.CreateMap<Product, ProductDTO>().ReverseMap();
+                cfg.CreateMap<ProductDetails, ProductDetailsDTO>().ReverseMap();
+                cfg.CreateMap<ProductCategory, ProductCategroyDTO>().ReverseMap();
             });
             return config.CreateMapper();
         }

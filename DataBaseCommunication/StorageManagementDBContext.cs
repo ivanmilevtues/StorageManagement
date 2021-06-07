@@ -9,10 +9,17 @@ namespace DataBaseCommunication
 {
     internal class StorageManagementDBContext: DbContext
     {
-        public StorageManagementDBContext(UserInitializer userInitializer)
+        public StorageManagementDBContext(DBInitializer dBInitializer)
         {
-            Database.SetInitializer(userInitializer);
+            Database.SetInitializer(dBInitializer);
         }
+
         public DbSet<User> Users { get; set; }
+
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<ProductDetails> ProductDetails { get; set; }
     }
 }

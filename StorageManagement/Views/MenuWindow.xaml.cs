@@ -18,7 +18,6 @@ namespace StorageManagement.Views
 
         private void Storage_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void Users_Click(object sender, RoutedEventArgs e)
