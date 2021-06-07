@@ -27,7 +27,7 @@ namespace StorageManagement
             try
             {
                 state.User = userService.Login(usernameTextBox.Text, passwordBox.Password);
-                var window = kernel.Get<AdminWindow>();
+                var window = kernel.Get<MenuWindow>();
                 Close();
                 window.Show();
             }
