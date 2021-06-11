@@ -18,18 +18,21 @@ namespace StorageManagement.Views
 
         private void Storage_Click(object sender, RoutedEventArgs e)
         {
+            ShowWindow(kernel.Get<ProductWindow>());
         }
 
         private void Users_Click(object sender, RoutedEventArgs e)
         {
-            var window = kernel.Get<AdminWindow>();
-            Close();
-            window.Show();
+            ShowWindow(kernel.Get<AdminWindow>());
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            var window = kernel.Get<LoginWindow>();
+            ShowWindow(kernel.Get<LoginWindow>());
+        }
+
+        private void ShowWindow(Window window)
+        {
             Close();
             window.Show();
         }

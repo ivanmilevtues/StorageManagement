@@ -19,8 +19,8 @@ namespace DataBaseCommunication.Managers
         }
 
         public UserDTO GetUser(string username, string password) {
-            var user = dbContext.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
-            return MapToDTO(user);
+            var userEntity = dbContext.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            return MapToDTO(userEntity);
         }
 
         public IEnumerable<UserDTO> GetAll() => dbContext.Users.AsEnumerable().Select(u => MapToDTO(u));

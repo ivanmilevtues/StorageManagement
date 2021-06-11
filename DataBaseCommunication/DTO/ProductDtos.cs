@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace DataBaseCommunication.DTO
 {
 
-    public class ProductCategroyDTO
+    public class ProductCategoryDTO
     {
-        public string CategoryName { get; set; }
+        public string Name { get; set; }
 
         public ICollection<ProductDTO> Products { get; set; }
     }
 
     public class ProductDTO
     {
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
         public int Amount { get; set; }
 

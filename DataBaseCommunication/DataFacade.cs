@@ -11,11 +11,13 @@ namespace DataBaseCommunication
     public class DataFacade : IDataFacade
     {
         private readonly UserDBManager userManager;
+        private readonly CategoryDBManager categoryManager;
 
         public DataFacade()
         {
             IKernel kernel = new StandardKernel(new DataManagerModule(), new InitializersModule());
             userManager = kernel.Get<UserDBManager>();
+            categoryManager = kernel.Get<CategoryDBManager>();
         }
 
         public UserDTO GetUser(string username, string password)
@@ -41,6 +43,11 @@ namespace DataBaseCommunication
         public UserDTO UpdateUser(UserDTO editedUser)
         {
             return userManager.Update(editedUser);
+        }
+
+        public IEnumerable<ProductCategoryDTO> GetCategories()
+        {
+            return categoryManager.GetAll();
         }
     }
 }

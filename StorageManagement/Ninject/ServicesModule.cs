@@ -10,6 +10,7 @@ namespace StorageManagement.Ninject
         {
             Bind<UserService>().ToSelf().InSingletonScope();
             Bind<StateService>().ToSelf().InSingletonScope();
+            Bind<ProductService>().ToSelf().InSingletonScope();
         }
     }
 }

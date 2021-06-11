@@ -13,7 +13,7 @@ namespace DataBaseCommunication.Models
 
         [StringLength(40)]
         [Index(IsUnique = true)]
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
         [StringLength(250)]
         public string Description { get; set; }

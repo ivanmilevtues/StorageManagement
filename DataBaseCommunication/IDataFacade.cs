@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using DataBaseCommunication.DTO;
 
 namespace DataBaseCommunication
@@ -15,5 +14,7 @@ namespace DataBaseCommunication
         IEnumerable<UserDTO> GetUsers();
 
         UserDTO UpdateUser(UserDTO editedUser);
+        
+        IEnumerable<ProductCategoryDTO> GetCategories();
     }
 }

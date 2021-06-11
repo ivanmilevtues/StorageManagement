@@ -11,16 +11,16 @@ namespace DataBaseCommunication.DBInitializers
         {
             IList<ProductCategory> productCategories = new List<ProductCategory>
             {
-                new ProductCategory() {CategoryName = "МПС", Products = new List<Product>()},
-                new ProductCategory() {CategoryName = "Храни", Products = new List<Product>()},
-                new ProductCategory() {CategoryName = "Дрехи", Products = new List<Product>()},
+                new ProductCategory() {Name = "МПС", Products = new List<Product>()},
+                new ProductCategory() {Name = "Храни", Products = new List<Product>()},
+                new ProductCategory() {Name = "Дрехи", Products = new List<Product>()},
             };
 
             IList<Product> products = new List<Product>
             {
                 new Product()
                 {
-                    ProductName = "Масло за коли",
+                    Name = "Масло за коли",
                     Amount = 5,
                     Description = "Моторно масло за автомболи 42W10",
                     ProductCategories = new List<ProductCategory>(),
@@ -28,7 +28,7 @@ namespace DataBaseCommunication.DBInitializers
                 },
                 new Product()
                 {
-                    ProductName = "Зимнги гуми Пирелин",
+                    Name = "Зимнги гуми Пирелин",
                     Amount = 10,
                     Description = "245/35R18",
                     ProductCategories = new List<ProductCategory>(),
@@ -36,7 +36,7 @@ namespace DataBaseCommunication.DBInitializers
                 },
                 new Product()
                 {
-                    ProductName = "Kожено яке",
+                    Name = "Kожено яке",
                     Amount = 10,
                     Description = "Кожено яко от естествена кожа за мотор, размер M",
                     ProductCategories = new List<ProductCategory>(),
@@ -44,7 +44,7 @@ namespace DataBaseCommunication.DBInitializers
                 },
                 new Product() 
                 {
-                    ProductName = "Данонино",
+                    Name = "Данонино",
                     Description = "Йогурт",
                     Amount = 25,
                     ProductCategories = new List<ProductCategory>(),
@@ -52,7 +52,7 @@ namespace DataBaseCommunication.DBInitializers
                 },
                 new Product() 
                 {
-                    ProductName = "Активиа мъже",
+                    Name = "Активиа мъже",
                     Description = "Ако си истинска батка, вземи киселото мляко за мъже",
                     Amount = 50,
                     ProductCategories = new List<ProductCategory>(),
@@ -60,7 +60,7 @@ namespace DataBaseCommunication.DBInitializers
                 },
                 new Product()
                 {
-                    ProductName = "Нацепин",
+                    Name = "Нацепин",
                     Description = "Нацепин с бахур, за да бухаш здраво.",
                     Amount = 50,
                     ProductCategories = new List<ProductCategory>(),

@@ -88,9 +88,11 @@
     <Compile Include="Ninject\ServicesModule.cs" />
     <Compile Include="Ninject\ViewModelModule.cs" />
     <Compile Include="Security\Attributes\PermissionRequired.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\StateService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\ProductCategoryViewModel.cs" />
     <Compile Include="Views\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -99,6 +101,9 @@
     </Compile>
     <Compile Include="Views\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductWindow.xaml.cs">
+      <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AdminWindow.xaml">
       <SubType>Designer</SubType>
@@ -121,6 +126,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

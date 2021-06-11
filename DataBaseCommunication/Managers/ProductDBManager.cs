@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using DataBaseCommunication.DTO;
+using DataBaseCommunication.Models;
 
 namespace DataBaseCommunication.Managers
 {
-    class ProductDBManager
+    internal class ProductDBManager : AbstractDbManager<Product, ProductDTO>
     {
-        public ProductDTO AddProduct()
+        public ProductDBManager(StorageManagementDBContext dbContext, IMapper dtoMapper) : base(dbContext, dtoMapper)
+        { }
+
+        public ProductDTO AddProduct(ProductDTO newProduct)
         {
-            return null;
+            var product = dbContext.Products.Add(MapToModel(newProduct));
+            return MapToDTO(product);
         }
 
         public ProductDTO RemoveProductAmount()
-        {
-            return null;
-        }
-
-        public ProductCategroyDTO AddCategory()
         {
             return null;
         }
