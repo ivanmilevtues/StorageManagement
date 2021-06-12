@@ -16,5 +16,9 @@ namespace DataBaseCommunication
         UserDTO UpdateUser(UserDTO editedUser);
         
         IEnumerable<ProductCategoryDTO> GetCategories();
+
+        IEnumerable<ProductDTO> GetProducts(string categoryName);
+        
+        IEnumerable<ProductDetailsDTO> GetDetails(string productName);
     }
 }

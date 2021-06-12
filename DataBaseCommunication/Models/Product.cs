@@ -20,9 +20,9 @@ namespace DataBaseCommunication.Models
 
         public int Amount { get; set; }
 
-        public ICollection<ProductCategory> ProductCategories { get; set; }
+        public virtual ICollection<ProductCategory> ProductCategories { get; set; }
 
-        public ICollection<ProductDetails> ProductDetails {get;set;}
+        public virtual ICollection<ProductDetails> ProductDetails {get;set;}
 
     }
 }

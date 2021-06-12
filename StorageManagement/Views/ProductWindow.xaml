@@ -8,10 +8,23 @@
         Title="ProductWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <ListBox>
-        </ListBox>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="Categories" Grid.Row="0" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="True" 
+                  ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
+        </DataGrid>
+        <DataGrid Name="Products" Grid.Row="0" Grid.Column="1" IsReadOnly="True" AutoGenerateColumns="True" 
+                  ItemsSource="{Binding ProductsForCategory}" SelectedItem="{Binding SelectedProduct}">
+        </DataGrid>
+        <DataGrid Name="Details" Grid.Row="0" Grid.Column="2" IsReadOnly="True" AutoGenerateColumns="True"
+                  ItemsSource="{Binding DetailsForProduct}">
+        </DataGrid>
     </Grid>
 </Window>

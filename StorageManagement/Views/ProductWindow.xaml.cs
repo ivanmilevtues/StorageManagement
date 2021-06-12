@@ -8,7 +8,7 @@ namespace StorageManagement.Views
     /// </summary>
     public partial class ProductWindow : Window
     {
-        public ProductWindow(ProductCategoryViewModel viewModel)
+        public ProductWindow(ProductsViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;

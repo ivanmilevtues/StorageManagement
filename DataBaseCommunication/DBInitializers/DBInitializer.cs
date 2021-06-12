@@ -2,7 +2,7 @@
 
 namespace DataBaseCommunication.DBInitializers
 {
-    class DBInitializer : DropCreateDatabaseAlways<StorageManagementDBContext>
+    class DBInitializer : DropCreateDatabaseIfModelChanges<StorageManagementDBContext>
     {
         private readonly ISeed[] seeds;
 
