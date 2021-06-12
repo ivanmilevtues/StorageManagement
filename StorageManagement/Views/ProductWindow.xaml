@@ -13,18 +13,35 @@
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Name="Categories" Grid.Row="0" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="True" 
+        <TextBox Name="CategoryFilter" Text="{Binding CategoryFilter, UpdateSourceTrigger=PropertyChanged}"
+                   Grid.Column="0" Grid.Row="0"></TextBox>
+        <TextBox Name="ProductFilter" Text="{Binding ProductFilter, UpdateSourceTrigger=PropertyChanged}"
+                   Grid.Column="1" Grid.Row="0"></TextBox>
+
+        <DataGrid Name="Categories" Grid.Row="1" Grid.Column="0" IsReadOnly="True" AutoGenerateColumns="True" 
                   ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}">
         </DataGrid>
-        <DataGrid Name="Products" Grid.Row="0" Grid.Column="1" IsReadOnly="True" AutoGenerateColumns="True" 
+        <DataGrid Name="Products" Grid.Row="1" Grid.Column="1" IsReadOnly="True" AutoGenerateColumns="True" 
                   ItemsSource="{Binding ProductsForCategory}" SelectedItem="{Binding SelectedProduct}">
         </DataGrid>
-        <DataGrid Name="Details" Grid.Row="0" Grid.Column="2" IsReadOnly="True" AutoGenerateColumns="True"
+        <DataGrid Name="Details" Grid.Row="1" Grid.Column="2" IsReadOnly="True" AutoGenerateColumns="True"
                   ItemsSource="{Binding DetailsForProduct}">
         </DataGrid>
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DatePicker Name="DetailsFilterFrom" SelectedDate="{Binding StartDate, UpdateSourceTrigger=PropertyChanged}"
+                   Grid.Column="0"></DatePicker>
+            <DatePicker Name="DetailFilterTo" SelectedDate="{Binding EndDate, UpdateSourceTrigger=PropertyChanged}"
+                   Grid.Column="1"></DatePicker>
+        </Grid>
     </Grid>
 </Window>
