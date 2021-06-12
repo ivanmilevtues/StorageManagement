@@ -6,19 +6,39 @@ using System.Threading.Tasks;
 
 namespace StorageManagement.Models
 {
-    public class Product
+    public class Product: NotifiableModel
     {
-        public string Name { get; set; }
-
-        public string Description { get; set; }
-
-        public int Amount { get; set; }
-
-        public Product(string name, string description, int amount)
+        private string _name;
+        public string Name
         {
-            Name = name;
-            Amount = amount;
-            Description = description;
+            get => _name;
+            set
+            {
+                _name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
+        private string _decription;
+        public string Description
+        {
+            get => _decription;
+            set
+            {
+                _decription = value;
+                OnPropertyChanged("Description");
+            }
+        }
+
+        private int _amount;
+        public int Amount 
+        { 
+            get => _amount;
+            set
+            {
+                _amount = value;
+                OnPropertyChanged("Amount");
+            }
         }
     }
 }

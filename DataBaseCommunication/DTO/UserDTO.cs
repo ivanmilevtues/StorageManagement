@@ -17,8 +17,8 @@ namespace DataBaseCommunication.DTO
 
     public enum RoleDTO
     {
-        Admin,
-        Cashier,
-        Supplier
+        Admin = 3,
+        Cashier = 2,
+        Supplier = 1
     }
 }

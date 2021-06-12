@@ -4,6 +4,7 @@ using DataBaseCommunication.DTO;
 using System.Linq;
 using System.Data.Entity;
 using System.Collections.Generic;
+using System;
 
 namespace DataBaseCommunication.Managers
 {
@@ -27,13 +28,20 @@ namespace DataBaseCommunication.Managers
             dbContext.SaveChanges();
         }
 
-        public ProductCategoryDTO UpdateCategory(string categoryName, ProductCategoryDTO newCategory)
+        public ProductCategoryDTO UpdateCategory(string categoryName, string newName)
         {
             var categoryEntity = dbContext.ProductCategories.Where(x => categoryName == x.Name).First();
-            categoryEntity.Name = newCategory.Name;
+            categoryEntity.Name = newName;
             dbContext.SaveChanges();
 
             return MapToDTO(categoryEntity);
+        }
+
+        public void Create(ProductCategoryDTO productCategoryDTO)
+        {
+            var categoryEntity = MapToModel(productCategoryDTO);
+            dbContext.ProductCategories.Add(categoryEntity);
+            dbContext.SaveChanges();
         }
     }
 }

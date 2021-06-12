@@ -5,8 +5,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
+using System.Windows.Input;
 using DataBaseCommunication.DTO;
+using StorageManagement.Commands;
 using StorageManagement.Models;
+using StorageManagement.Security.Attributes;
 using StorageManagement.Services;
 
 namespace StorageManagement.ViewModels
@@ -14,7 +17,7 @@ namespace StorageManagement.ViewModels
     public class ProductsViewModel: INotifyPropertyChanged
     {
         private readonly ProductService productService;
-
+        private readonly StateService state;
         private readonly ObservableCollection<Category> _categories;
 
         public ICollectionView Categories { get; }
@@ -103,7 +106,6 @@ namespace StorageManagement.ViewModels
                 DetailsForProduct.Refresh();
             }
         }
-
         public DateTime? EndDate
         {
             get => _endDate;
@@ -115,9 +117,11 @@ namespace StorageManagement.ViewModels
             }
         }
 
-        public ProductsViewModel(ProductService productService)
+        public ProductsViewModel(ProductService productService, StateService state)
         {
             this.productService = productService;
+            this.state = state;
+
             _categories = new ObservableCollection<Category>(productService.GetCategories());
             Categories = CollectionViewSource.GetDefaultView(_categories);
             Categories.Filter = FilterCategories;
@@ -129,6 +133,60 @@ namespace StorageManagement.ViewModels
             _detailsForProduct = new ObservableCollection<Details>();
             DetailsForProduct = CollectionViewSource.GetDefaultView(_detailsForProduct);
             DetailsForProduct.Filter = FilterDetails;
+
+            Category = new Category();
+            Product = new Product();
+            Details = new Details() { DeliveryDate = DateTime.Today, ProductionDate = DateTime.Today};
+        }
+
+        public ICommand UpdateCategoryCommand { get => new PermissionRequiredCommand(UpdateCategory, state.User.Role); }
+        public ICommand CreateCategoryCommand { get => new PermissionRequiredCommand(CreateCategory, state.User.Role); }
+        public ICommand UpdateProductCommand { get => new PermissionRequiredCommand(UpdateProduct, state.User.Role); }
+        public ICommand CreateProductCommand { get => new PermissionRequiredCommand(CreateProduct, state.User.Role); } 
+        public ICommand DeliveryInCommand { get => new PermissionRequiredCommand(DeliveryIn, state.User.Role); }
+        public ICommand DeliveryOutCommand { get => new PermissionRequiredCommand(DeliveryOut, state.User.Role); }
+      
+        [PermissionRequired(RoleDTO.Admin)]
+        private void UpdateCategory()
+        {
+            productService.UpdateCategory(SelectedCategory, Category);
+            SelectedCategory.Name = Category.Name;
+        }
+
+        [PermissionRequired(RoleDTO.Admin)]
+        private void CreateCategory()
+        {
+            productService.CreateCategory(Category);
+            _categories.Add(Category);
+        }
+
+        [PermissionRequired(RoleDTO.Admin)]
+        private void UpdateProduct()
+        {
+            productService.UpdateProduct(SelectedProduct, Product);
+            SelectedProduct.Name = Product.Name;
+        }
+
+        [PermissionRequired(RoleDTO.Admin)]
+        private void CreateProduct()
+        {
+            productService.CreateProduct(SelectedCategory, Product);
+            _productsForCategory.Add(Product);
+        }
+
+        [PermissionRequired(RoleDTO.Supplier)]
+        private void DeliveryIn()
+        {
+            productService.CreateDetails(SelectedProduct, Details);
+            SelectedProduct.Amount += Details.Amount;
+            _detailsForProduct.Add(Details);
+        }
+
+        [PermissionRequired(RoleDTO.Cashier)]
+        private void DeliveryOut()
+        {
+            productService.UpdateDetails(SelectedProduct, SelectedDetails, Details);
+            SelectedProduct.Amount -= Details.Amount;
         }
 
         private bool FilterCategories(object obj)

@@ -6,22 +6,50 @@ using System.Threading.Tasks;
 
 namespace StorageManagement.Models
 {
-    public class Details
+    public class Details: NotifiableModel
     {
-        public DateTime DeliveryDate { get; set; }
-
-        public DateTime ProductionDate { get; set; }
-
-        public DateTime? ExpirationDate { get; set; }
-
-        public int Amount { get; set; }
-
-        public Details(DateTime deliverDate, DateTime productionDate, DateTime? expirationDate, int amount)
+        private DateTime _deliveryDate;
+        public DateTime DeliveryDate
         {
-            DeliveryDate = deliverDate;
-            ProductionDate = productionDate;
-            ExpirationDate = expirationDate;
-            Amount = amount;
+            get => _deliveryDate;
+            set
+            {
+                _deliveryDate = value;
+                OnPropertyChanged("DeliveryDate");
+            }
+        }
+
+        private DateTime _productionDate;
+        public DateTime ProductionDate
+        {
+            get => _productionDate;
+            set
+            {
+                _productionDate = value;
+                OnPropertyChanged("ProductionDate");
+            }
+        }
+
+        private DateTime? _expirationDate;
+        public DateTime? ExpirationDate
+        {
+            get => _expirationDate;
+            set
+            {
+                _expirationDate = value;
+                OnPropertyChanged("ExpirationDate");
+            }
+        }
+
+        private int _amount;
+        public int Amount
+        {
+            get => _amount;
+            set
+            {
+                _amount = value;
+                OnPropertyChanged("Amount");
+            }
         }
     }
 }

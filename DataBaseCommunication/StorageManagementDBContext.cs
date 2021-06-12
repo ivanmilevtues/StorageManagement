@@ -34,6 +34,12 @@ namespace DataBaseCommunication
                     ppc.MapRightKey("ProductCategoryRefId");
                     ppc.ToTable("ProductCategoryProduct");
                 });
+
+
+            modelBuilder.Entity<ProductDetails>()
+                .HasRequired<Product>(pd => pd.Product)
+                .WithMany(p => p.ProductDetails)
+                .HasForeignKey<int>(p => p.ProductId);
             base.OnModelCreating(modelBuilder);
         }
     }

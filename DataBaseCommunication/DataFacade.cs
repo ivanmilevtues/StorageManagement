@@ -38,5 +38,17 @@ namespace DataBaseCommunication
 
         public IEnumerable<ProductDetailsDTO> GetDetails(string productName) => productManager.GetDetails(productName);
 
+        public void UpdateCategoryName(string oldName, string newName) => categoryManager.UpdateCategory(oldName, newName);
+
+        public void CreateCategory(ProductCategoryDTO productCategoryDTO) => categoryManager.Create(productCategoryDTO);
+
+        public void UpdateProductName(string oldName, string newName) => productManager.Update(oldName, newName);
+
+        public void CreateProduct(string categoryName, ProductDTO productDTO) => productManager.Create(categoryName, productDTO);
+
+        public void UpdateDetails(string productName, ProductDetailsDTO productDetailsDTO, int newAmount) => productManager.UpdateDetails(productName, productDetailsDTO, newAmount);
+
+        public void CreateDetails(string productName, ProductDetailsDTO productDetailsDTO) => productManager.CreateDetails(productName, productDetailsDTO);
+  
     }
 }

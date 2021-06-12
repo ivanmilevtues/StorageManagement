@@ -37,7 +37,7 @@ namespace StorageManagement.Commands
                 return true;
             }
 
-            return methodAttributes.Any(attr => (attr is PermissionRequired) && (attr as PermissionRequired).RequeredRole == userRole);
+            return methodAttributes.Any(attr => (attr is PermissionRequired) && (attr as PermissionRequired).RequeredRole <= userRole);
         }
     }
 }

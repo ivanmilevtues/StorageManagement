@@ -23,6 +23,7 @@ namespace DataBaseCommunication.DTO
         public int Amount { get; set; }
 
         public ICollection<ProductDetailsDTO> ProductDetails { get; set; }
+        public ICollection<ProductCategoryDTO> ProductCategories { get; set; }
     }
 
     public class ProductDetailsDTO

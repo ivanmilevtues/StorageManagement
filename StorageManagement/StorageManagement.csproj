@@ -86,6 +86,7 @@
     <Compile Include="Commands\PermissionRequiredCommand.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Details.cs" />
+    <Compile Include="Models\NotifiableModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Ninject\SecondPartyModule.cs" />
     <Compile Include="Ninject\ServicesModule.cs" />
