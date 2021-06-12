@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StorageManagement.Views"
         mc:Ignorable="d"
-        Title="ProductWindow" Height="450" Width="800">
+        Title="ProductWindow" Height="900" Width="1800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -30,7 +30,7 @@
                   ItemsSource="{Binding ProductsForCategory}" SelectedItem="{Binding SelectedProduct}">
         </DataGrid>
         <DataGrid Name="Details" Grid.Row="1" Grid.Column="2" IsReadOnly="True" AutoGenerateColumns="True"
-                  ItemsSource="{Binding DetailsForProduct}">
+                  ItemsSource="{Binding DetailsForProduct}" SelectedItem="{Binding SelectedDetails}">
         </DataGrid>
 
         <Grid Grid.Row="0" Grid.Column="2">
@@ -43,5 +43,137 @@
             <DatePicker Name="DetailFilterTo" SelectedDate="{Binding EndDate, UpdateSourceTrigger=PropertyChanged}"
                    Grid.Column="1"></DatePicker>
         </Grid>
+        <!-- #region Create/Update Category-->
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label>Текущо име  на категорията</Label>
+                <Label  Grid.Column="1" Content="{Binding SelectedCategory.Name}"></Label>
+                <Label Grid.Row="1">Име на катогорията</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Category.Name}"></TextBox>
+                <Button Grid.Row="2" Grid.Column="1">Обнови</Button>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label>Име на катогорията</Label>
+                <TextBox Grid.Column="1" Text="{Binding Category.Name}"></TextBox>
+                <Button Grid.Row="1" Grid.Column="1">Добави</Button>
+            </Grid>
+            <Label Grid.Row="0" FontSize="15px">Промени същестуваща категория</Label>
+            <Label Grid.Row="2" FontSize="15px">Добави нова категория</Label>
+        </Grid>
+        <!-- #endregion -->
+
+        <!--#region Create/Update product-->
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label>Текущо име  на продукта</Label>
+                <Label Grid.Column="1" Content="{Binding SelectedProduct.Name}"></Label>
+                <Label Grid.Row="1">Ново име на продукта</Label>
+                <TextBox  Grid.Row="1" Grid.Column="1" Text="{Binding Product.Name}"></TextBox>
+                <Button Grid.Row="2" Grid.Column="1">Обнови</Button>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label>Име на продукта</Label>
+                <TextBox Grid.Column="1" Text="{Binding Product.Name}"></TextBox>
+                <Button Grid.Row="1" Grid.Column="1">Добави</Button>
+            </Grid>
+            <Label Grid.Row="0" FontSize="15px">Промени същестуващ продукт</Label>
+            <Label Grid.Row="2" FontSize="15px">Добави нов продукт</Label>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region Create/Update detail-->
+        <Grid Grid.Row="2" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label>Дата на доставка</Label>
+                <DatePicker Grid.Column="1" SelectedDate="{Binding Details.DeliveryDate}"></DatePicker>
+                <Label Grid.Row="1">Дата на производство</Label>
+                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Details.ProductionDate}"></DatePicker>
+                <Label Grid.Row="2">Срок на годност</Label>
+                <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Details.ExpirationDate}"></DatePicker>
+                <Label Grid.Row="3">Брой приети артикула</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Details.Amount}"></TextBox>
+
+                <Button Grid.Row="4" Grid.Column="1">Добави</Button>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label>Брой взети артикули</Label>
+                <TextBox Grid.Column="1" Text="{Binding SelectedDetails.Amount}"></TextBox>
+                <Button Grid.Row="1" Grid.Column="1">Обнови</Button>
+            </Grid>
+            <Label Grid.Row="0" FontSize="15px">Приемане на стока</Label>
+            <Label Grid.Row="2" FontSize="15px">Отдаване на стока</Label>
+        </Grid>
+        <!--#endregion-->
     </Grid>
 </Window>

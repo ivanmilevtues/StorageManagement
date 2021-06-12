@@ -27,6 +27,9 @@ namespace StorageManagement.ViewModels
 
         public ICollectionView DetailsForProduct { get; }
 
+        public Category Category { get; set; }
+        public Product Product { get; set; }
+        public Details Details { get; set; }
 
         private Category _selectedCategory;
 
@@ -50,6 +53,17 @@ namespace StorageManagement.ViewModels
                 _selectedProduct = value;
                 OnPropertyChanged("SelectedProduct");
                 LoadProductDetails();
+            }
+        }
+
+        private Details _selectedDetails;
+        public Details SelectedDetails
+        {
+            get => _selectedDetails;
+            set
+            {
+                _selectedDetails = value;
+                OnPropertyChanged("SelectedDetails");
             }
         }
 
