@@ -51,5 +51,16 @@ namespace StorageManagement.Models
                 OnPropertyChanged("Amount");
             }
         }
+
+        private bool _isInDelivery;
+        public bool IsInDelivery
+        {
+            get => _isInDelivery;
+            set
+            {
+                _isInDelivery = value;
+                OnPropertyChanged("IsInDelivery");
+            }
+        }
     }
 }

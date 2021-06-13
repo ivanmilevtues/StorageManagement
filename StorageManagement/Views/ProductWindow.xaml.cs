@@ -6,7 +6,7 @@ namespace StorageManagement.Views
     /// <summary>
     /// Interaction logic for ProductWindow.xaml
     /// </summary>
-    public partial class ProductWindow : Window
+    public partial class ProductWindow : BaseWindow
     {
         private readonly MenuWindow menuWindow;
 
@@ -15,12 +15,6 @@ namespace StorageManagement.Views
             InitializeComponent();
             DataContext = viewModel;
             this.menuWindow = menuWindow;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-            menuWindow.Show();
         }
     }
 }

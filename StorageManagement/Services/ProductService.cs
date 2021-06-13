@@ -52,8 +52,7 @@ namespace StorageManagement.Services
         public List<Details> GetDetails(string productName)
         {
             return dataFacade.GetDetails(productName)
-                .Select(pd => new Details() { DeliveryDate = pd.DeliveryDate, ProductionDate = pd.ProductionDate, ExpirationDate = pd.ExpirationDate, Amount = pd.Amount }).ToList();
-
+                .Select(pd => new Details() { DeliveryDate = pd.DeliveryDate, ProductionDate = pd.ProductionDate, ExpirationDate = pd.ExpirationDate, Amount = pd.Amount, IsInDelivery = pd.IsInDelivery }).ToList();
         }
 
         public void UpdateCategory(Category selectedCategory, Category category)

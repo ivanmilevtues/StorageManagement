@@ -1,9 +1,9 @@
-﻿<Window x:Class="StorageManagement.LoginWindow"
+﻿<local:BaseWindow x:Class="StorageManagement.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:StorageManagement"
+        xmlns:local="clr-namespace:StorageManagement.Views"
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800">
     <Grid>
@@ -26,4 +26,4 @@
         <PasswordBox x:Name="passwordBox" Grid.Row="2" Grid.Column="2"></PasswordBox>
         <Button Grid.Row="3" Grid.Column="2" Click="Login_Click">Login</Button>
     </Grid>
-</Window>
+</local:BaseWindow>

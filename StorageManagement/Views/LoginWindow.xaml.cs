@@ -8,7 +8,7 @@ namespace StorageManagement
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginWindow : BaseWindow
     {
         private readonly UserService userService;
         private readonly StateService state;
@@ -28,7 +28,7 @@ namespace StorageManagement
             {
                 state.User = userService.Login(usernameTextBox.Text, passwordBox.Password);
                 var window = kernel.Get<MenuWindow>();
-                Close();
+                Hide();
                 window.Show();
             }
             catch (InvalidLoginException ex)

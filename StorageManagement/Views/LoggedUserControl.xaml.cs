@@ -39,7 +39,7 @@ namespace StorageManagement.Views
                     break;
                 }
             }
-            Window.GetWindow(this).Close();
+            Window.GetWindow(this).Hide();
         }
     }
 }

@@ -59,17 +59,6 @@ namespace StorageManagement.ViewModels
             }
         }
 
-        private Details _selectedDetails;
-        public Details SelectedDetails
-        {
-            get => _selectedDetails;
-            set
-            {
-                _selectedDetails = value;
-                OnPropertyChanged("SelectedDetails");
-            }
-        }
-
         private string _categoryFilter = string.Empty;
         public string CategoryFilter 
         { 
@@ -179,6 +168,7 @@ namespace StorageManagement.ViewModels
         [PermissionRequired(RoleDTO.Admin, RoleDTO.Supplier)]
         private void DeliveryIn()
         {
+            Details.IsInDelivery = true;
             productService.CreateDetails(SelectedProduct, Details);
             SelectedProduct.Amount += Details.Amount;
             _detailsForProduct.Add(Details);
@@ -187,9 +177,12 @@ namespace StorageManagement.ViewModels
         [PermissionRequired(RoleDTO.Admin, RoleDTO.Cashier)]
         private void DeliveryOut()
         {
-            productService.UpdateDetails(SelectedProduct, SelectedDetails, Details);
+            Details.IsInDelivery = false;
+            productService.CreateDetails(SelectedProduct, Details);
+
             SelectedProduct.Amount -= Details.Amount;
-            SelectedDetails.Amount -= Details.Amount;
+            
+            _detailsForProduct.Add(Details);
         }
 
         private bool FilterCategories(object obj)

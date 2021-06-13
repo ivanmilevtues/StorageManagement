@@ -18,7 +18,7 @@ namespace StorageManagement.Views
     /// <summary>
     /// Interaction logic for ReportsWindow.xaml
     /// </summary>
-    public partial class ReportsWindow : Window
+    public partial class ReportsWindow : BaseWindow
     {
 
         public ReportsWindow(ReportsViewModel viewModel)
