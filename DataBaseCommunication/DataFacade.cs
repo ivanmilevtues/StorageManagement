@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using DataBaseCommunication.DTO;
 using DataBaseCommunication.Managers;
-using DataBaseCommunication.Models;
 using DataBaseCommunication.Ninject;
 using Ninject;
 
@@ -49,6 +47,5 @@ namespace DataBaseCommunication
         public void UpdateDetails(string productName, ProductDetailsDTO productDetailsDTO, int newAmount) => productManager.UpdateDetails(productName, productDetailsDTO, newAmount);
 
         public void CreateDetails(string productName, ProductDetailsDTO productDetailsDTO) => productManager.CreateDetails(productName, productDetailsDTO);
-  
     }
 }

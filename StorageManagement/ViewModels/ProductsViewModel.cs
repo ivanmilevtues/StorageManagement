@@ -12,7 +12,7 @@ using StorageManagement.Services;
 
 namespace StorageManagement.ViewModels
 {
-    public class ProductsViewModel: INotifyPropertyChanged
+    public class ProductsViewModel: AbstractViewModel
     {
         private readonly ProductService productService;
         private readonly StateService state;
@@ -246,12 +246,5 @@ namespace StorageManagement.ViewModels
             }
         }
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-        #endregion
     }
 }

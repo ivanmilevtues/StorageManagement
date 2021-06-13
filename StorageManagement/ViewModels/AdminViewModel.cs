@@ -13,14 +13,11 @@ using StorageManagement.Views;
 
 namespace StorageManagement.ViewModels
 {
-    public class AdminViewModel : INotifyPropertyChanged
+    public class AdminViewModel: AbstractViewModel
     {
         private readonly UserService userService;
         private readonly StateService state;
         private readonly List<UserDTO> _users;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private Array roles = Enum.GetValues(typeof(RoleDTO));
 
         private UserDTO _editedUser = new UserDTO();
@@ -45,7 +42,7 @@ namespace StorageManagement.ViewModels
             set
             {
                 _filter = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Users)));
+                OnPropertyChanged("Users");
             }
         }
 
@@ -72,7 +69,7 @@ namespace StorageManagement.ViewModels
             set 
             {
                 _editedUser = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(EditedUser)));
+                OnPropertyChanged("EditedUser");
             }
         }
 
@@ -96,7 +93,7 @@ namespace StorageManagement.ViewModels
                 Role = EditedUser.Role,
             };
             _users.Add(userService.CreateUser(newUser));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Users)));
+            OnPropertyChanged("Users");
         }
 
         [PermissionRequired(RoleDTO.Admin)]
