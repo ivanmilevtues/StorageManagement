@@ -34,6 +34,8 @@ namespace DataBaseCommunication
 
         public IEnumerable<ProductDTO> GetProducts(string categoryName) => productManager.GetProducts(categoryName);
 
+        public IEnumerable<ProductDTO> GetProducts() => productManager.GetAll();
+
         public IEnumerable<ProductDetailsDTO> GetDetails(string productName) => productManager.GetDetails(productName);
 
         public void UpdateCategoryName(string oldName, string newName) => categoryManager.UpdateCategory(oldName, newName);

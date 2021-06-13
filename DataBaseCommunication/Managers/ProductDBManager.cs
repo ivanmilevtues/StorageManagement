@@ -24,7 +24,7 @@ namespace DataBaseCommunication.Managers
             return null;
         }
 
-        public IEnumerable<ProductDTO> GetAll() => dbContext.Products.AsEnumerable().Select(p => MapToDTO(p));
+        public IEnumerable<ProductDTO> GetAll() => dbContext.Products.Include("ProductCategories").AsEnumerable().Select(p => MapToDTO(p));
 
         public IEnumerable<ProductDTO> GetProducts(string categoryName) => dbContext.Products
                                                                                     .Where(p => p.ProductCategories.Where(c => c.Name == categoryName).Any())

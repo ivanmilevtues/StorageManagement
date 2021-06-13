@@ -19,19 +19,7 @@
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
 
-        <!--#region Back-->
-        <Grid Grid.Row="0" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Label>Активен потребител:</Label>
-            <Label Grid.Column="1" Content="{Binding LoggedUser.Username}"></Label>
-            <Button Grid.Column="3" Click="Button_Click">Назад</Button>
-        </Grid>
-        <!--#endregion-->
+        <local:LoggedUserControl Username="{Binding LoggedUser.Username}"  Grid.Row="0"/>
 
         <TextBox Name="CategoryFilter" Text="{Binding CategoryFilter, UpdateSourceTrigger=PropertyChanged}"
                    Grid.Column="0" Grid.Row="1"></TextBox>

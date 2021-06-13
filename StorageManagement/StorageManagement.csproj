@@ -88,6 +88,8 @@
     <Compile Include="Models\Details.cs" />
     <Compile Include="Models\NotifiableModel.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\ReportForm.cs" />
     <Compile Include="Ninject\SecondPartyModule.cs" />
     <Compile Include="Ninject\ServicesModule.cs" />
     <Compile Include="Ninject\ViewModelModule.cs" />
@@ -102,6 +104,9 @@
     <Compile Include="Views\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LoggedUserControl.xaml.cs">
+      <DependentUpon>LoggedUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -111,10 +116,14 @@
     <Compile Include="Views\ProductWindow.xaml.cs">
       <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reports.xaml.cs">
-      <DependentUpon>Reports.xaml</DependentUpon>
+    <Compile Include="Views\ReportsWindow.xaml.cs">
+      <DependentUpon>ReportsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoggedUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,7 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Reports.xaml">
+    <Page Include="Views\ReportsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

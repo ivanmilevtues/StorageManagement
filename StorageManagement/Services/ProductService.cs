@@ -23,6 +23,16 @@ namespace StorageManagement.Services
             return dataFacade.GetCategories().Select(c => new Category() { Name = c.Name }).ToList();
         }
 
+        public List<Product> GetProducts()
+        {
+            return dataFacade.GetProducts().Select(p => new Product() { Name = p.Name, Description = p.Description, Amount = p.Amount }).ToList();
+        }
+
+        public List<ProductDTO> GetProductDTOs()
+        {
+            return dataFacade.GetProducts().ToList();
+        }
+
         public List<Product> GetProducts(string categoryName)
         {
             return dataFacade.GetProducts(categoryName).Select(p => new Product() { Name = p.Name, Description = p.Description, Amount = p.Amount }).ToList();

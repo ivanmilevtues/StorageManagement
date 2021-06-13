@@ -12,6 +12,7 @@ namespace DataBaseCommunication
         IEnumerable<UserDTO> GetUsers();
         UserDTO UpdateUser(UserDTO editedUser);
         IEnumerable<ProductCategoryDTO> GetCategories();
+        IEnumerable<ProductDTO> GetProducts();
         IEnumerable<ProductDTO> GetProducts(string categoryName);
         IEnumerable<ProductDetailsDTO> GetDetails(string productName);
         void UpdateCategoryName(string oldName, string newName);

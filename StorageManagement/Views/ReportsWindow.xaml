@@ -1,0 +1,33 @@
+﻿<Window x:Class="StorageManagement.Views.ReportsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StorageManagement.Views"
+        mc:Ignorable="d"
+        Title="ReportsWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <local:LoggedUserControl Username="{Binding LoggedUser.Username}"  Grid.Row="0"/>
+        <!--#region Form -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0" ItemsSource="{Binding CategoryNames}" SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Form.CategoryName, UpdateSourceTrigger=PropertyChanged}">
+            </ComboBox>
+            <ComboBox Grid.Column="1" ItemsSource="{Binding ProductsView}" DisplayMemberPath="Name"
+                SelectedItem="{Binding Form.ProductName, UpdateSourceTrigger=PropertyChanged}">
+            </ComboBox>
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</Window>

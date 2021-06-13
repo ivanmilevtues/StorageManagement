@@ -36,9 +36,14 @@ namespace StorageManagement.Views
             ShowWindow(kernel.Get<LoginWindow>());
         }
 
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            ShowWindow(kernel.Get<ReportsWindow>());
+        }
+
         private void ShowWindow(Window window)
         {
-            Close();
+            Hide();
             window.Show();
         }
     }
