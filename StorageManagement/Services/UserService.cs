@@ -43,6 +43,7 @@ namespace StorageManagement.Services
 
         public void ResetPassword(UserDTO editedUser)
         {
+            editedUser.Password = HashPassword(editedUser.Password);
             dataFacade.UpdateUser(editedUser);
         }
 
