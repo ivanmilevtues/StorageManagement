@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -33,6 +31,8 @@ namespace StorageManagement.ViewModels
         public Category Category { get; set; }
         public Product Product { get; set; }
         public Details Details { get; set; }
+
+        public UserDTO LoggedUser { get; set; }
 
         private Category _selectedCategory;
 
@@ -137,6 +137,8 @@ namespace StorageManagement.ViewModels
             Category = new Category();
             Product = new Product();
             Details = new Details() { DeliveryDate = DateTime.Today, ProductionDate = DateTime.Today};
+
+            LoggedUser = state.User;
         }
 
         public ICommand UpdateCategoryCommand { get => new PermissionRequiredCommand(UpdateCategory, state.User.Role); }
@@ -153,7 +155,7 @@ namespace StorageManagement.ViewModels
             SelectedCategory.Name = Category.Name;
         }
 
-        [PermissionRequired(RoleDTO.Admin)]
+        [PermissionRequired(RoleDTO.Admin, RoleDTO.Supplier)]
         private void CreateCategory()
         {
             productService.CreateCategory(Category);
@@ -167,14 +169,14 @@ namespace StorageManagement.ViewModels
             SelectedProduct.Name = Product.Name;
         }
 
-        [PermissionRequired(RoleDTO.Admin)]
+        [PermissionRequired(RoleDTO.Admin, RoleDTO.Supplier)]
         private void CreateProduct()
         {
             productService.CreateProduct(SelectedCategory, Product);
             _productsForCategory.Add(Product);
         }
 
-        [PermissionRequired(RoleDTO.Supplier)]
+        [PermissionRequired(RoleDTO.Admin, RoleDTO.Supplier)]
         private void DeliveryIn()
         {
             productService.CreateDetails(SelectedProduct, Details);
@@ -182,11 +184,12 @@ namespace StorageManagement.ViewModels
             _detailsForProduct.Add(Details);
         }
 
-        [PermissionRequired(RoleDTO.Cashier)]
+        [PermissionRequired(RoleDTO.Admin, RoleDTO.Cashier)]
         private void DeliveryOut()
         {
             productService.UpdateDetails(SelectedProduct, SelectedDetails, Details);
             SelectedProduct.Amount -= Details.Amount;
+            SelectedDetails.Amount -= Details.Amount;
         }
 
         private bool FilterCategories(object obj)

@@ -66,11 +66,12 @@ namespace DataBaseCommunication.Managers
 
         public void UpdateDetails(string productName, ProductDetailsDTO productDetailsDTO, int newAmount)
         {
-            var sad = dbContext.ProductDetails.ToList();
+            var productEntity = GetProduct(productName);
             var detailsEntity  = dbContext.ProductDetails.Where(pd => pd.Product.Name == productName).Where(pd =>
-                pd.ProductionDate == productDetailsDTO.ProductionDate && pd.DeliveryDate == productDetailsDTO.DeliveryDate && pd.Amount == productDetailsDTO.Amount).FirstOrDefault();
+                pd.ProductionDate == productDetailsDTO.ProductionDate && pd.DeliveryDate == productDetailsDTO.DeliveryDate).FirstOrDefault();
 
-            detailsEntity.Amount = newAmount;
+            productEntity.Amount -= detailsEntity.Amount - newAmount;
+            detailsEntity.Amount = newAmount;            
 
             dbContext.SaveChanges();
         }

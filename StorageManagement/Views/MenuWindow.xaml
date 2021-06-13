@@ -20,5 +20,19 @@
         <Button Grid.Row="0" Grid.Column="1" Margin="10" Click="Storage_Click">Асортимент</Button>
         <Button Grid.Row="1" Grid.Column="1" Margin="10" Click="Users_Click">Потребители</Button>
         <Button Grid.Row="2" Grid.Column="1" Margin="10" Click="Logout_Click">Изход</Button>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label>Потребителско име:</Label>
+            <Label Grid.Row="0" Grid.Column="1" Name="UsernameLabel"></Label>
+            <Label  Grid.Row="1" >Потребителски права на:</Label>
+            <Label Grid.Row="1" Grid.Column="1" Name="RoleLabel"></Label>
+        </Grid>
     </Grid>
 </Window>

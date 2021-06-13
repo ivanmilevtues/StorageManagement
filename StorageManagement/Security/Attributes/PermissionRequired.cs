@@ -10,11 +10,11 @@ namespace StorageManagement.Security.Attributes
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     class PermissionRequired : Attribute
     {
-        public PermissionRequired(RoleDTO requeredRole)
+        public PermissionRequired(params RoleDTO[] requeredRoles)
         {
-            RequeredRole = requeredRole;
+            RequeredRoles = requeredRoles;
         }
 
-        public RoleDTO RequeredRole { get; }
+        public RoleDTO[] RequeredRoles { get; }
     }
 }

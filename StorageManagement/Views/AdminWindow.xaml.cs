@@ -9,10 +9,19 @@ namespace StorageManagement.Views
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public AdminWindow(AdminViewModel viewModel)
+        private MenuWindow menuWindow;
+
+        public AdminWindow(AdminViewModel viewModel, MenuWindow menuWindow)
         {
+            this.menuWindow = menuWindow;
             InitializeComponent();
             DataContext = viewModel;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            menuWindow.Show();
         }
     }
 }

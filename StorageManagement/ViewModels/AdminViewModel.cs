@@ -9,6 +9,7 @@ using DataBaseCommunication.DTO;
 using StorageManagement.Commands;
 using StorageManagement.Security.Attributes;
 using StorageManagement.Services;
+using StorageManagement.Views;
 
 namespace StorageManagement.ViewModels
 {
@@ -30,8 +31,13 @@ namespace StorageManagement.ViewModels
         {
             this.userService = userService;
             this.state = state;
+            LoggedUser = state.User;
             _users = userService.GetUsers().ToList();
         }
+
+        public UserDTO LoggedUser { get; set; }
+
+        public ICommand BackCommand { get; set; }
 
         public string Filter
         { 

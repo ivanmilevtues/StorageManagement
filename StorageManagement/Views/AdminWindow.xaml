@@ -11,9 +11,22 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-
+        <!--#region Back-->
         <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label>Активен потребител:</Label>
+            <Label Grid.Column="1" Content="{Binding LoggedUser.Username}"></Label>
+            <Button Grid.Column="3" Click="Button_Click">Назад</Button>
+        </Grid>
+        <!--#endregion-->
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -21,7 +34,7 @@
             <Label Grid.Column="0">Филтрирай:</Label>
             <TextBox Grid.Column="1" Name="filter" Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </Grid>
-        <ListView Grid.Row="1" ItemsSource="{Binding Users}" SelectedItem="{Binding EditedUser}" >
+        <ListView Grid.Row="2" ItemsSource="{Binding Users}" SelectedItem="{Binding EditedUser}" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Потребителско Име" Width="Auto" DisplayMemberBinding="{Binding Username}"></GridViewColumn>

@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using DataBaseCommunication.DTO;
 using Ninject;
+using StorageManagement.Services;
 
 namespace StorageManagement.Views
 {
@@ -14,6 +16,9 @@ namespace StorageManagement.Views
         {
             this.kernel = kernel;
             InitializeComponent();
+            var loggedUser = kernel.Get<StateService>().User;
+            UsernameLabel.Content = loggedUser.Username;
+            RoleLabel.Content = loggedUser.Role;
         }
 
         private void Storage_Click(object sender, RoutedEventArgs e)

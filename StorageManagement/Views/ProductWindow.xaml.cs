@@ -8,10 +8,19 @@ namespace StorageManagement.Views
     /// </summary>
     public partial class ProductWindow : Window
     {
-        public ProductWindow(ProductsViewModel viewModel)
+        private readonly MenuWindow menuWindow;
+
+        public ProductWindow(ProductsViewModel viewModel, MenuWindow menuWindow)
         {
             InitializeComponent();
             DataContext = viewModel;
+            this.menuWindow = menuWindow;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            menuWindow.Show();
         }
     }
 }
