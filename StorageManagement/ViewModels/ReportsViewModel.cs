@@ -3,20 +3,32 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Data;
+using System.Windows.Input;
 using DataBaseCommunication.DTO;
+using StorageManagement.Commands;
 using StorageManagement.Models;
+using StorageManagement.Security.Attributes;
 using StorageManagement.Services;
 
 namespace StorageManagement.ViewModels
 {
     public class ReportsViewModel: AbstractViewModel
     {
-        private readonly ProductService productService;
-        private readonly StateService state;
+        private readonly ReportService reportService;
 
         public UserDTO LoggedUser { get; set; }
 
-        public Report Report { get; set; }
+
+        private Report _report;
+        public Report Report 
+        { 
+            get => _report; 
+            set
+            {
+                _report = value;
+                OnPropertyChanged("Report");
+            }
+        }
 
         public ReportForm Form { get; set; }
 
@@ -44,15 +56,15 @@ namespace StorageManagement.ViewModels
 
         public ICollectionView ProductsView { get; set; }
 
-        public ReportsViewModel(ProductService productService, StateService state)
+        public ReportsViewModel(ProductService productService, StateService state, ReportService reportService)
         {
-            Form = new ReportForm();
-            this.productService = productService;
-            this.state = state;
+            this.reportService = reportService;
             LoggedUser = state.User;
 
+            Form = new ReportForm();
+
             CategoryNames = productService.GetCategories().Select(c => c.Name).ToList();
-            CategoryNames.Insert(0, "Всички");
+            CategoryNames.Insert(0, "Всички категории");
 
             _products = new ObservableCollection<ProductDTO>(productService.GetProductDTOs());
 
@@ -71,6 +83,14 @@ namespace StorageManagement.ViewModels
             }
 
             return false;
+        }
+
+        public ICommand CreateReportCommand { get => new PermissionRequiredCommand(CreateReport, LoggedUser.Role); }
+
+        [PermissionRequired(RoleDTO.Admin)]
+        private  void CreateReport()
+        {
+            Report = reportService.GenerateReport(Form);
         }
     }
 }

@@ -21,5 +21,6 @@ namespace DataBaseCommunication
         void CreateProduct(string categoryName, ProductDTO productDTO);
         void UpdateDetails(string productName, ProductDetailsDTO productDetailsDTO, int amount);
         void CreateDetails(string productName, ProductDetailsDTO productDetailsDTO);
+        ProductDTO GetProduct(string productName);
     }
 }

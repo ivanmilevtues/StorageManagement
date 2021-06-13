@@ -75,14 +75,48 @@ namespace DataBaseCommunication.DBInitializers
                     DeliveryDate = new DateTime(2020, 10, 10),
                     ProductionDate = new DateTime(2020, 2, 10),
                     Amount = 2,
-                    Product = products[0]
+                    Product = products[0],
+                    IsInDelivery = true
+                },
+                new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2020, 10, 10),
+                    ProductionDate = new DateTime(2020, 2, 10),
+                    Amount = 2,
+                    Product = products[0],
+                    IsInDelivery = true
+                },
+                new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2020, 10, 10),
+                    ProductionDate = new DateTime(2020, 2, 10),
+                    Amount = 2,
+                    Product = products[0],
+                    IsInDelivery = false
                 },
                 new ProductDetails
                 {
                     DeliveryDate = new DateTime(2020, 11, 10),
                     ProductionDate = new DateTime(2020, 3, 10),
                     Amount = 3,
-                    Product = products[0]
+                    Product = products[0],
+                    IsInDelivery = true
+                },
+                 new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2020, 11, 10),
+                    ProductionDate = new DateTime(2020, 3, 10),
+                    Amount = 3,
+                    Product = products[0],
+                    IsInDelivery = true
+                },
+                    new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2020, 11, 10),
+                    ProductionDate = new DateTime(2020, 3, 10),
+                    Amount = 3,
+                    Product = products[0],
+                    IsInDelivery = false
                 },
                 new ProductDetails
                 {
@@ -90,14 +124,34 @@ namespace DataBaseCommunication.DBInitializers
                     ProductionDate = new DateTime(2018, 2, 10),
                     ExpirationDate = new DateTime(2022, 2, 10),
                     Amount = 10,
-                    Product = products[1]
+                    Product = products[1],
+                    IsInDelivery = true
+                },
+                new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2019, 10, 10),
+                    ProductionDate = new DateTime(2018, 2, 10),
+                    ExpirationDate = new DateTime(2022, 2, 10),
+                    Amount = 10,
+                    Product = products[1],
+                    IsInDelivery = false
+                },
+                    new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2019, 10, 10),
+                    ProductionDate = new DateTime(2018, 2, 10),
+                    ExpirationDate = new DateTime(2022, 2, 10),
+                    Amount = 10,
+                    Product = products[1],
+                    IsInDelivery = true
                 },
                 new ProductDetails
                 {
                     DeliveryDate = new DateTime(2021, 6, 8),
                     ProductionDate = new DateTime(2021, 6, 5),
                     Amount = 10,
-                    Product = products[2]
+                    Product = products[2],
+                    IsInDelivery = true
                 },
                 new ProductDetails
                 {
@@ -105,7 +159,8 @@ namespace DataBaseCommunication.DBInitializers
                     ProductionDate = new DateTime(2021, 6, 12),
                     ExpirationDate = new DateTime(2021, 6, 29),
                     Amount = 25,
-                    Product = products[3]
+                    Product = products[3],
+                    IsInDelivery = true
                 },
                 new ProductDetails
                 {
@@ -113,15 +168,44 @@ namespace DataBaseCommunication.DBInitializers
                     ProductionDate = new DateTime(2021, 6, 12),
                     ExpirationDate = new DateTime(2021, 6, 29),
                     Amount = 50,
-                    Product = products[4]
+                    Product = products[4],
+                    IsInDelivery = true
                 },
                 new ProductDetails
                 {
                     DeliveryDate = new DateTime(2021, 6, 15),
                     ProductionDate = new DateTime(2021, 6, 12),
                     ExpirationDate = new DateTime(2021, 6, 29),
-                    Amount = 50,
-                    Product = products[5]
+                    Amount = 40,
+                    Product = products[5],
+                    IsInDelivery = true
+                },
+                new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2021, 6, 15),
+                    ProductionDate = new DateTime(2021, 6, 12),
+                    ExpirationDate = new DateTime(2021, 6, 29),
+                    Amount = 20,
+                    Product = products[5],
+                    IsInDelivery = false
+                },
+                new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2021, 6, 15),
+                    ProductionDate = new DateTime(2021, 6, 12),
+                    ExpirationDate = new DateTime(2021, 6, 29),
+                    Amount = 10,
+                    Product = products[5],
+                    IsInDelivery = false
+                },
+                new ProductDetails
+                {
+                    DeliveryDate = new DateTime(2021, 6, 15),
+                    ProductionDate = new DateTime(2021, 6, 12),
+                    ExpirationDate = new DateTime(2021, 6, 29),
+                    Amount = 30,
+                    Product = products[5],
+                    IsInDelivery = true
                 },
             };
 

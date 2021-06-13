@@ -8,47 +8,70 @@ namespace StorageManagement.Models
 {
     public class Report: NotifiableModel
     {
-        private int _freeSpace;
-        public int FreeSpace 
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                OnPropertyChanged("ReportName");
+            }
+        }
+
+        private int _addedItems = 0;
+        public int AddedItems 
         { 
-            get => _freeSpace; 
+            get => _addedItems; 
             set
             {
-                _freeSpace = value;
-                OnPropertyChanged("FreeSpace");
+                _addedItems = value;
+                OnPropertyChanged("AddedItems");
             }
         }
 
-        private int _takenSpace;
-        public int TakenSpace
+        private int _removedItems = 0;
+        public int RemovedItems
         {
-            get => _takenSpace;
+            get => _removedItems;
             set
             {
-                _takenSpace = value;
-                OnPropertyChanged("TakenSpace");
-                FreeSpace = AllSpace - _takenSpace;
+                _removedItems = value;
+                OnPropertyChanged("RemovedItems");
             }
         }
 
-        private int _allSpace;
-        public int AllSpace
-        {
-            get => _allSpace;
-            set
-            {
-                _allSpace = value;
-                OnPropertyChanged("AllSpace");
-            }
-        }
-
-        private int _numberOfDeliveries;
+        private int _numberOfDeliveries = 0;
         public int NumberOfDeliveries
         {
             get => _numberOfDeliveries;
             set
             {
                 _numberOfDeliveries = value;
+                OnPropertyChanged("NumberOfDeliveries");
+            }
+        }
+
+
+        private int _numberOfDeliveryIns = 0;
+        public int NumberOfDeliveryIns
+        {
+            get => _numberOfDeliveryIns;
+            set
+            {
+                _numberOfDeliveryIns = value;
+                OnPropertyChanged("NumberOfDeliveries");
+            }
+        }
+
+
+        private int _numberOfDeliveryOuts = 0;
+        public int NumberOfDeliveryOuts
+        {
+            get => _numberOfDeliveryOuts;
+            set
+            {
+                _numberOfDeliveryOuts = value;
                 OnPropertyChanged("NumberOfDeliveries");
             }
         }

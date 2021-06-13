@@ -9,8 +9,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <local:LoggedUserControl Username="{Binding LoggedUser.Username}"  Grid.Row="0"/>
         <!--#region Form -->
@@ -25,9 +25,43 @@
             <ComboBox Grid.Column="0" ItemsSource="{Binding CategoryNames}" SelectedIndex="{Binding SelectedIndex, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Form.CategoryName, UpdateSourceTrigger=PropertyChanged}">
             </ComboBox>
             <ComboBox Grid.Column="1" ItemsSource="{Binding ProductsView}" DisplayMemberPath="Name"
-                SelectedItem="{Binding Form.ProductName, UpdateSourceTrigger=PropertyChanged}">
+                SelectedItem="{Binding Form.Product, UpdateSourceTrigger=PropertyChanged}">
             </ComboBox>
+            <DatePicker Grid.Column="2" SelectedDate="{Binding Form.StartDate}"></DatePicker>
+            <DatePicker Grid.Column="3" SelectedDate="{Binding Form.EndDate}"></DatePicker>
+            <Button Grid.Column="4" Command="{Binding CreateReportCommand}">Обнови резултати</Button>
         </Grid>
         <!--#endregion-->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="{Binding Report.Name}"></Label>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0">Брой доставени и впсиани в склада продукти:</Label>
+                <Label Grid.Row="0" Grid.Column="1" Content="{Binding Report.AddedItems}"></Label>
+                <Label Grid.Row="1" Grid.Column="0">Брой изписани от склада продукти:</Label>
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Report.RemovedItems}"></Label>
+                <Label Grid.Row="2" Grid.Column="0">Общ брой доставки и изписвания от склада по избраните критерии</Label>
+                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Report.NumberOfDeliveries}"></Label>
+                <Label Grid.Row="3" Grid.Column="0">Брой доставки в склада по избраните критерии</Label>
+                <Label Grid.Row="3" Grid.Column="1" Content="{Binding Report.NumberOfDeliveryIns}"></Label>
+                <Label Grid.Row="4" Grid.Column="0">Брой изписвания от склада по избраните критерии</Label>
+                <Label Grid.Row="4" Grid.Column="1" Content="{Binding Report.NumberOfDeliveryOuts}"></Label>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

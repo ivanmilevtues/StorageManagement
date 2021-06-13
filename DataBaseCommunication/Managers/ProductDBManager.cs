@@ -24,9 +24,10 @@ namespace DataBaseCommunication.Managers
             return null;
         }
 
-        public IEnumerable<ProductDTO> GetAll() => dbContext.Products.Include("ProductCategories").AsEnumerable().Select(p => MapToDTO(p));
+        public IEnumerable<ProductDTO> GetAll() => dbContext.Products.Include("ProductCategories").Include("ProductDetails").AsEnumerable().Select(p => MapToDTO(p));
 
         public IEnumerable<ProductDTO> GetProducts(string categoryName) => dbContext.Products
+                                                                                    .Include("ProductDetails")
                                                                                     .Where(p => p.ProductCategories.Where(c => c.Name == categoryName).Any())
                                                                                     .AsEnumerable()
                                                                                     .Select(p => MapToDTO(p));
@@ -62,6 +63,12 @@ namespace DataBaseCommunication.Managers
 
             dbContext.ProductDetails.Add(detailsEntity);
             dbContext.SaveChanges();
+        }
+
+        public ProductDTO GetProductWithDetails(string productName)
+        {
+            var productEntity = dbContext.Products.Include("ProductDetails").Where(p => p.Name == productName).FirstOrDefault();
+            return MapToDTO(productEntity);
         }
 
         public void UpdateDetails(string productName, ProductDetailsDTO productDetailsDTO, int newAmount)

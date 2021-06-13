@@ -16,6 +16,8 @@ namespace DataBaseCommunication.Models
 
         public DateTime? ExpirationDate { get; set; }
 
+        public bool IsInDelivery { get; set; }
+
         public int Amount { get; set; }
 
         public int ProductId { get; set; }

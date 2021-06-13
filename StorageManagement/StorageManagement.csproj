@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\PermissionRequiredCommand.cs" />
+    <Compile Include="ExtensionMethods\ExtensionMethods.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Details.cs" />
     <Compile Include="Models\NotifiableModel.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Ninject\ViewModelModule.cs" />
     <Compile Include="Security\Attributes\PermissionRequired.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\StateService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\AbstractViewModel.cs" />

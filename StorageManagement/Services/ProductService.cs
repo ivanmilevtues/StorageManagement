@@ -31,11 +31,22 @@ namespace StorageManagement.Services
         public List<ProductDTO> GetProductDTOs()
         {
             return dataFacade.GetProducts().ToList();
+
+        }
+
+        public List<ProductDTO> GetProductDTOs(string categoryName)
+        {
+            return dataFacade.GetProducts(categoryName).ToList();
         }
 
         public List<Product> GetProducts(string categoryName)
         {
             return dataFacade.GetProducts(categoryName).Select(p => new Product() { Name = p.Name, Description = p.Description, Amount = p.Amount }).ToList();
+        } 
+
+        public ProductDTO GetProductWithDetails(string productName)
+        {
+            return dataFacade.GetProduct(productName);
         }
 
         public List<Details> GetDetails(string productName)

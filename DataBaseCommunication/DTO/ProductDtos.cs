@@ -34,6 +34,8 @@ namespace DataBaseCommunication.DTO
 
         public DateTime? ExpirationDate { get; set; }
 
+        public bool IsInDelivery { get; set; }
+
         public ProductDTO Product { get; set; }
 
         public int Amount { get; set; }
