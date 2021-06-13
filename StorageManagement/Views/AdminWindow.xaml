@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StorageManagement.Views"
         mc:Ignorable="d"
-        Title="Users control" Height="450" Width="800"
+        Title="Система за оправление на инвентара" Height="450" Width="800"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     <Grid>
@@ -50,8 +50,8 @@
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditedUser.Password}"></TextBox>
             <Label Grid.Row="2">Права:</Label>
             <ComboBox  Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Roles}" SelectedItem="{Binding EditedUser.Role}"></ComboBox>
-            <Button Grid.Row="3" Grid.Column="1" Command="{Binding CreateUserCommand}">Create user</Button>
-            <Button Grid.Row="3" Grid.Column="0" Command="{Binding ResetUserPasswordCommand}">Reset password for user</Button>
+            <Button Grid.Row="3" Grid.Column="1" Command="{Binding CreateUserCommand}">Създай нов потребител</Button>
+            <Button Grid.Row="3" Grid.Column="0" Command="{Binding ResetUserPasswordCommand}">Обнови паролата</Button>
 
         </Grid>
     </Grid>
