@@ -26,6 +26,6 @@
         <TextBox x:Name="usernameTextBox" Grid.Row="1" Grid.Column="2"></TextBox>
         <Label Grid.Row="2" Grid.Column="1">Парола:</Label>
         <PasswordBox x:Name="passwordBox" Grid.Row="2" Grid.Column="2"></PasswordBox>
-        <Button Grid.Row="3" Grid.Column="2" Click="Login_Click">Login</Button>
+        <Button Grid.Row="3" Grid.Column="2" Click="Login_Click">Вход</Button>
     </Grid>
 </local:BaseWindow>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows.Data;
 using System.Windows.Input;
 using DataBaseCommunication.DTO;
@@ -227,7 +226,10 @@ namespace StorageManagement.ViewModels
         private void LoadProducts()
         {
             _productsForCategory.Clear();
-            productService.GetProducts(_selectedCategory.Name).ForEach(_productsForCategory.Add);
+            if(_selectedCategory != null)
+            {
+                productService.GetProducts(_selectedCategory.Name).ForEach(_productsForCategory.Add);
+            }
         }
 
         private void LoadProductDetails()
