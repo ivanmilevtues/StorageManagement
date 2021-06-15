@@ -97,7 +97,8 @@ namespace StorageManagement.Services
                 Amount = details.Amount,
                 DeliveryDate = details.DeliveryDate,
                 ExpirationDate = details.ExpirationDate,
-                ProductionDate = details.ProductionDate
+                ProductionDate = details.ProductionDate,
+                IsInDelivery = details.IsInDelivery
             });
         }
     }

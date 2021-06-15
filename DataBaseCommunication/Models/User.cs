@@ -9,10 +9,12 @@ namespace DataBaseCommunication.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required]
         [StringLength(40)]
         [Index(nameof(Username), IsUnique = true)]
         public string Username { get; set; }
 
+        [Required]
         [StringLength(40)]
         public string Password { get; set; }
 

@@ -8,7 +8,7 @@ using Ninject.Modules;
 
 namespace DataBaseCommunication.Ninject
 {
-    class InitializersModule : NinjectModule
+    internal class InitializersModule : NinjectModule
     {
         public override void Load()
         {

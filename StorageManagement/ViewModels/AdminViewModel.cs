@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Windows.Data;
 using System.Windows.Input;
 using DataBaseCommunication.DTO;
 using StorageManagement.Commands;
 using StorageManagement.Security.Attributes;
 using StorageManagement.Services;
-using StorageManagement.Views;
 
 namespace StorageManagement.ViewModels
 {
@@ -33,8 +29,6 @@ namespace StorageManagement.ViewModels
         }
 
         public UserDTO LoggedUser { get; set; }
-
-        public ICommand BackCommand { get; set; }
 
         public string Filter
         { 

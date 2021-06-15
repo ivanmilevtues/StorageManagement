@@ -25,7 +25,7 @@ namespace StorageManagement.Services
             var user = dataFacade.GetUser(username, hashedPassword);
             if (user is null)
             {
-                throw new InvalidLoginException("Username or password is wrong.");
+                throw new InvalidLoginException("Невалидни потребителско име и/или парола.");
             }
             return user;
         }

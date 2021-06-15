@@ -5,12 +5,12 @@ namespace StorageManagement.Ninject
 {
     class ServicesModule : NinjectModule
     {
-
         public override void Load()
         {
             Bind<UserService>().ToSelf().InSingletonScope();
             Bind<StateService>().ToSelf().InSingletonScope();
             Bind<ProductService>().ToSelf().InSingletonScope();
+            Bind<ReportService>().ToSelf().InSingletonScope();
         }
     }
 }

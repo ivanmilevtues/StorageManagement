@@ -11,6 +11,7 @@ namespace DataBaseCommunication.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required]
         [StringLength(40)]
         [Index(IsUnique = true)]
         public string Name { get; set; }

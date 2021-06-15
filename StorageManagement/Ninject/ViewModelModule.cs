@@ -8,6 +8,8 @@ namespace StorageManagement.Ninject
         public override void Load()
         {
             Bind<AdminViewModel>().ToSelf().InSingletonScope();
+            Bind<ProductsViewModel>().ToSelf().InSingletonScope();
+            Bind<ReportsViewModel>().ToSelf().InSingletonScope();
         }
     }
 }

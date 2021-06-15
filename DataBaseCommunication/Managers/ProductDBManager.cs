@@ -58,7 +58,13 @@ namespace DataBaseCommunication.Managers
             var productEntity = GetProduct(productName);
             var detailsEntity = dtoMapper.Map<ProductDetailsDTO, ProductDetails>(productDetailsDTO);
 
-            productEntity.Amount += detailsEntity.Amount;
+            if(detailsEntity.IsInDelivery)
+            {
+                productEntity.Amount += detailsEntity.Amount;
+            } else
+            {
+                productEntity.Amount -= detailsEntity.Amount;
+            }
             detailsEntity.Product = productEntity;
 
             dbContext.ProductDetails.Add(detailsEntity);
